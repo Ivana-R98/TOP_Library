@@ -24,7 +24,8 @@ function Book(title, author, pages, read) {
 
 
 // get the book
-function addBookToLibrary() {
+function addBookToLibrary(e) {
+    e.preventDefault();
     const book = new Book(document.getElementById("title").value, 
     document.getElementById("author").value, 
     document.getElementById("pages").value,
@@ -42,6 +43,7 @@ function addBookToLibrary() {
     let labelY = document.createElement("label");
     let labelN = document.createElement("label");
     let grpRadio = document.createElement("div");
+    let br = document.createElement("br");
 
     div.classList.add("card");
     readY.setAttribute("type", "checkbox");
@@ -61,6 +63,13 @@ function addBookToLibrary() {
     author.innerText = "Author: " + book.author;
     pages.innerText = "Pages: " + book.pages;
     read.innerText = "Read: " + book.read;
+
+    if(book.title === "" || book.author === "") {
+        if(book.title === "") alert("Please enter the books name");
+        else alert("Please enter the books author");
+        return;
+    }
+    if(book.pages === '') pages.innerText = "Pages: Unknown";
 
     // create and change checkbox on a card
     readN.addEventListener("click", () => {
@@ -97,6 +106,7 @@ function addBookToLibrary() {
     grpRadio.appendChild(labelY);
     grpRadio.appendChild(readN);
     grpRadio.appendChild(labelN);
+    div.appendChild(br);
 
     //create buttons to remove from the library
     let remove = document.createElement("button");
@@ -113,7 +123,8 @@ function addBookToLibrary() {
         let index = myLibrary.findIndex(ele => 
             ele.title === book.title);
         myLibrary.splice(index, 1);
-
+        
+        console.log(myLibrary);
         books.removeChild(div);
     })
     
