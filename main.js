@@ -51,13 +51,13 @@ function addBookToLibrary(e) {
     readY.setAttribute("value", "yes");
     readY.setAttribute("id", "dynamicYes");
     labelY.setAttribute("for", "dynamicYes");
-    labelY.innerText = "Read";
+    labelY.innerText = " Read  ";
     readN.setAttribute("type", "checkbox");
     readN.setAttribute("name", "read");
     readN.setAttribute("value", "no");
     readY.setAttribute("id", "dynamicNo");
     labelN.setAttribute("for", "dynamicNo");
-    labelN.innerText = "Not yet";
+    labelN.innerText = " Not yet ";
 
     title.innerText = "Book: " + book.title;
     author.innerText = "Author: " + book.author;
@@ -76,23 +76,24 @@ function addBookToLibrary(e) {
         readN.checked = true;
         readY.checked = false;
         book.read = "no";
-        read.innerText = "Not read yet";
-        div.style.backgroundColor = "Red";
+        read.innerText = " Not read yet ";
+        read.style.padding =" 2px";
+        div.style.border = "6px solid #d60202";
     })
     readY.addEventListener("click", () => {
         readY.checked = true;
         readN.checked = false;
         book.read = "yes";
-        read.innerText = "Read";
-        div.style.backgroundColor = "#27db42";
+        read.innerText = " Read ";
+        div.style.border = "6px solid #57c23c";
     })
 
     if(book.read === "yes") {
-        div.style.backgroundColor = "#27db42";
+        div.style.border = "6px solid #57c23c";
         readY.checked = true;
     }
     else if (book.read === "no") {
-        div.style.backgroundColor = "Red";
+        div.style.border = "6px solid #d60202";
         readN.checked = true;
     }
 
