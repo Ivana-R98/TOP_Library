@@ -59,10 +59,10 @@ function addBookToLibrary(e) {
     labelN.setAttribute("for", "dynamicNo");
     labelN.innerText = " Not yet ";
 
-    title.innerText = "Book: " + book.title;
-    author.innerText = "Author: " + book.author;
-    pages.innerText = "Pages: " + book.pages;
-    read.innerText = "Read: " + book.read;
+    title.innerText = "Book:  " + book.title;
+    author.innerText = "Author:  " + book.author;
+    pages.innerText = "Pages:  " + book.pages;
+    read.innerText = "Read:  " + book.read;
 
     if(book.title === "" || book.author === "") {
         if(book.title === "") alert("Please enter the books name");
@@ -88,11 +88,11 @@ function addBookToLibrary(e) {
         div.style.border = "6px solid #57c23c";
     })
 
-    if(book.read === "yes") {
+    if(book.read === "Yes") {
         div.style.border = "6px solid #57c23c";
         readY.checked = true;
     }
-    else if (book.read === "no") {
+    else if (book.read === "No") {
         div.style.border = "6px solid #d60202";
         readN.checked = true;
     }
